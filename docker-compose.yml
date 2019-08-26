@@ -1,0 +1,9 @@
+version: '3'
+services:
+  docker-redis-playground:
+    build: .
+  redis:
+    image: 'redis:alpine'
+    ports:
+      - '6379:6379'
+
