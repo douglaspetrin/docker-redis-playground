@@ -15,3 +15,5 @@ sudo docker-compose down
 
 
 mysql -h <ipaddress> -u root -p
+
+#.
