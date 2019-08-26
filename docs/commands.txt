@@ -1,0 +1,3 @@
+sudo docker build -t docker-redis-playground .
+sudo docker image ls
+sudo docker run -it docker-redis-playground:latest /bin/sh
