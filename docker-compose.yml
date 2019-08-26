@@ -1,9 +1,31 @@
 version: '3'
+
 services:
+
   docker-redis-playground:
     build: .
+  
   redis:
     image: 'redis:alpine'
     ports:
       - '6379:6379'
+
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      - MYSQL_ROOT_HOST=0.0.0.0
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
+      - MYSQL_DATABASE=db
+
+    ports:
+      - '3306:3306'
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - '8080:8080'
 

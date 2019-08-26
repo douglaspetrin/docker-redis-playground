@@ -3,3 +3,15 @@
 sudo docker build -t docker-redis-playground .
 sudo docker image ls
 sudo docker run -it docker-redis-playground:latest /bin/sh
+
+sudo docker container ps
+sudo docker inspect <id>
+
+sudo ip addr
+
+sudo docker-compose up -d
+sudo docker-compose stop
+sudo docker-compose down
+
+
+mysql -h <ipaddress> -u root -p
