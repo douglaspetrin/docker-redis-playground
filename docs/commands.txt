@@ -16,4 +16,4 @@ sudo docker-compose down
 
 mysql -h <ipaddress> -u root -p
 
-#.
+git rm --cached *.pyc
