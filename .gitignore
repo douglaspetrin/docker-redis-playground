@@ -3,3 +3,4 @@ venv
 .idea
 src/db.py
 src/mydb.py
+*.pyc
