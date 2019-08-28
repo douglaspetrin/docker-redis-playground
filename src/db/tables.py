@@ -1,5 +1,7 @@
 from sqlalchemy import Column, Integer, String, Sequence
-from src.db.setup import Base, engine
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
 
 
 class User(Base):
@@ -12,15 +14,6 @@ class User(Base):
     nickname = Column(String(20))
 
 
-class Account(Base):
-
-    __tablename__ = 'accounts'
-
-    id = Column(Integer, Sequence('account_id_seq'), primary_key=True)
-    type = Column(String(10))
-    price = Column(String(6))
-
-
 class Candle(Base):
 
     __tablename__ = 'candles'
@@ -30,10 +23,5 @@ class Candle(Base):
     price = Column(String(6))
 
 
-class MigrateTables:
-
-    @staticmethod
-    def run():
-        return Base.metadata.create_all(engine)
 
 
