@@ -2,12 +2,13 @@ import sqlalchemy
 from sqlalchemy.orm import sessionmaker
 from src.db.tables import Base
 from src.db.tables import User, Candle
-import sys
 
 
 class Start(object):
+
+    """ Starts with MySQL address"""
+
     def __init__(self, localhost=None, database='doug_db', user='root', password='root'):
-        """ Starts with MySQL address"""
         self.localhost = localhost
         self.database = database
         self.user = user
