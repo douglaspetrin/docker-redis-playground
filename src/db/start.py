@@ -40,6 +40,7 @@ class Start(object):
         return d
 
     def add(self, table=None, arg1=None, arg2=None):
+        """ Adds data to the tables"""
         data = self._add_to_table(table, arg1, arg2)
         return self.session.add(data)
 
