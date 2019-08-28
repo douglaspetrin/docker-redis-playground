@@ -2,6 +2,7 @@ import sqlalchemy
 from sqlalchemy.orm import sessionmaker
 from src.db.tables import Base
 from src.db.tables import User, Candle
+import sys
 
 
 class Start(object):
@@ -39,7 +40,7 @@ class Start(object):
 
         return d
 
-    def add(self, table=None, arg1=None, arg2=None):
+    def add_to_table(self, table=None, arg1=None, arg2=None):
         """ Adds data to the tables"""
         data = self._add_to_table(table, arg1, arg2)
         return self.session.add(data)

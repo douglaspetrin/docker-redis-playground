@@ -23,5 +23,13 @@ class Candle(Base):
     price = Column(String(6))
 
 
+class Opaa(Base):
+
+    __tablename__ = 'opaa'
+
+    id = Column(Integer, Sequence('opaa_id_seq'), primary_key=True)
+    symbol = Column(String(20))
+    price = Column(String(20))
+
 
 
