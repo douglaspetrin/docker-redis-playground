@@ -6,6 +6,7 @@ sudo docker run -it docker-redis-playground:latest /bin/sh
 
 sudo docker container ps
 sudo docker inspect <id>
+sudo docker inspect <id> | grep IPAddress
 
 sudo ip addr
 
@@ -17,3 +18,15 @@ sudo docker-compose down
 mysql -h <ipaddress> -u root -p
 
 git rm --cached *.pyc
+
+sudo service mysqld stop
+
+# hide code with no commits:
+
+git stash
+
+# to undo the stash do:
+
+git stash apply
+
+git stash list
