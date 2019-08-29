@@ -4,7 +4,7 @@ from src.db.tables import Base
 from src.db.tables import User, Candle
 
 
-class Start(object):
+class StartMySQL(object):
 
     """ Starts with MySQL address"""
 
@@ -49,5 +49,3 @@ class Start(object):
     def commit_session(self):
         """ Commits the open session"""
         return self.session.commit()
-
-# TODO: creates docker volume to save data in disk

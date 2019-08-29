@@ -1,13 +1,13 @@
-import redis
 import json
+import redis
 
 
 class StartRedis(object):
 
-    """ Starts redis instance """
+    """ Starts redisdb instance """
 
-    def __init__(self, localhost):
-        self.redis = redis.Redis(localhost)
+    def __init__(self, host):
+        self.redis = redis.StrictRedis(host)
         self.encoder = json.JSONEncoder()
         self.stream = 'doug_redis_stream'
 
@@ -39,6 +39,13 @@ class StartRedis(object):
         """ Returns the number of elements in set name"""
         return self.redis.scard(name)
 
+    def set_name_value(self, name, value):
+        """ Sets name value"""
+        return self.redis.set(name, value)
+
+    def read_set(self, name):
+        """ Reads set"""
+        return self.redis.get(name)
 
 
 import datetime
