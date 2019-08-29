@@ -4,3 +4,4 @@ venv
 src/db.py
 src/mydb.py
 *.pyc
+backup/backup.sql

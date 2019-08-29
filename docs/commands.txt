@@ -20,6 +20,7 @@ mysql -h <ipaddress> -u root -p
 git rm --cached *.pyc
 
 sudo service mysqld stop
+sudo service mysql stop
 
 # hide code with no commits:
 
@@ -30,3 +31,6 @@ git stash
 git stash apply
 
 git stash list
+
+chmod +x mysql-docker.sh
+./mysql-docker.sh

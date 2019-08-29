@@ -27,13 +27,24 @@ class StartRedis(object):
         """ Length of stream """
         return self.redis.xlen(self.stream)
 
-    def sadd(self, name):
+    def add_to_set_name(self, name, *values):
         """Add values to set name"""
-        return self.redis.sadd(name)
+        return self.redis.sadd(name, *values)
 
-    def smembers(self, name):
+    def get_members_of_set_name(self, name):
         """ Returns all members of set name"""
         return self.redis.smembers(name)
 
+    def get_number_of_elements_in_set_name(self, name):
+        """ Returns the number of elements in set name"""
+        return self.redis.scard(name)
 
-data = {"hello": StartRedis('172.20.0.4').encoder.encode([1234, 125, 1235, 1235])}  # converts list to string
+
+
+import datetime
+
+# data = {"hello": StartRedis('172.20.0.4').encoder.encode([1234, 125, 1235, 1235])}  # converts list to string
+visitors = {'pedro', 'maria', 'joao'}
+
+today = datetime.date.today()
+stoday = today.isoformat()
