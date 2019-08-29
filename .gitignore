@@ -5,3 +5,4 @@ src/db.py
 src/mydb.py
 *.pyc
 backup/backup.sql
+mysql_data/
