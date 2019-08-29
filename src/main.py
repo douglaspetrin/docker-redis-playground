@@ -4,42 +4,35 @@ from src.redisdb.app import StartRedis
 from src.db.start import StartMySQL
 import json
 
-sr = StartRedis('172.24.0.5')
-sm = StartMySQL('172.24.0.4')
-# class InputData(object):
-#
-#     """ Generates data """
-#
-#     def __init__(self, name, fullname, nickname):
-#         self.name = name
-#         self.fullname = fullname
-#         self.nickname = nickname
 
-name = [
-    'Douglas',
-    'Petrin',
-    'Bertini'
-]
+class InputData(object):
 
-fullname = [
-    'Douglas P B',
-    'P B Doug',
-    'P B'
-]
+    """ Generates data """
 
-nickname = [
-    'douglao',
-    'doug',
-    'dogras'
-]
+    def __init__(self, name, fullname, nickname):
+        self.name = name
+        self.fullname = fullname
+        self.nickname = nickname
 
-# while True:
-data = '[{}, {}, {}]'.format(random.choice(name), random.choice(fullname), random.choice(nickname))
-id = time.time()
-sr.set_name_value(id, data)
-sr_ob = sr.read_set(id)
-print(sr_ob)
-# sm.add_to_table('User', )
+    def convert_to_dict(self):
+        return dict(name=random.choice(self.name), fullname=random.choice(self.fullname), nickname=random.choice(self.nickname))
+
+
+sr = StartRedis('')
+sm = StartMySQL('')
+I = InputData(['Douglas', 'Petrin', 'Bertini'], ['Douglas P B', 'P B Doug', 'P B'], ['douglao', 'doug', 'dogras'])
+
+
+def main():
+    id = time.time()
+    sr.set_name_value(id, json.dumps(I.convert_to_dict()))
+    sr_ob = sr.read_set(id)
+    a = json.loads(sr_ob)
+    sm.add_to_table('User', a['name'], a['fullname'], a['nickname'], id)
+    sm.commit_session()
+
 
 if __name__ == '__main__':
-    print('hey')
+    while True:
+        main()
+

@@ -27,11 +27,11 @@ class StartMySQL(object):
         """ Creates all tables in the engine """
         return Base.metadata.create_all(self.engine)
 
-    def _add_to_table(self, table=None, arg1=None, arg2=None):
+    def _add_to_table(self, table=None, arg1=None, arg2=None, arg3=None, arg4=None):
         """ Adds data to table"""
 
         if table == "User":
-            d = User(name=arg1, fullname=arg2, nickname=arg2)
+            d = User(name=arg1, fullname=arg2, nickname=arg3, id_redis=arg4)
 
         if table == "Candle":
             d = Candle(symbol=arg1, price=arg2)
@@ -41,9 +41,9 @@ class StartMySQL(object):
 
         return d
 
-    def add_to_table(self, table=None, arg1=None, arg2=None):
+    def add_to_table(self, table=None, arg1=None, arg2=None, arg3=None, arg4=None):
         """ Adds data to the tables"""
-        data = self._add_to_table(table, arg1, arg2)
+        data = self._add_to_table(table, arg1, arg2, arg3, arg4)
         return self.session.add(data)
 
     def commit_session(self):

@@ -48,10 +48,10 @@ class StartRedis(object):
         return self.redis.get(name)
 
 
-import datetime
-
-# data = {"hello": StartRedis('172.20.0.4').encoder.encode([1234, 125, 1235, 1235])}  # converts list to string
-visitors = {'pedro', 'maria', 'joao'}
-
-today = datetime.date.today()
-stoday = today.isoformat()
+# import datetime
+#
+# # data = {"hello": StartRedis('172.20.0.4').encoder.encode([1234, 125, 1235, 1235])}  # converts list to string
+# visitors = {'pedro', 'maria', 'joao'}
+#
+# today = datetime.date.today()
+# stoday = today.isoformat()
