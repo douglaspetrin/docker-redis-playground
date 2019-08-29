@@ -49,3 +49,5 @@ class Start(object):
     def commit_session(self):
         """ Commits the open session"""
         return self.session.commit()
+
+# TODO: creates docker volume to save data in disk
