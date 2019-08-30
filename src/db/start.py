@@ -1,7 +1,7 @@
 import sqlalchemy
 from sqlalchemy.orm import sessionmaker
-from src.db.tables import Base
-from src.db.tables import User, Candle
+from db.tables import Base
+from db.tables import User, Candle
 import os
 
 
@@ -60,3 +60,16 @@ def setup_mysql(host, user, password, database):
     os.environ['MYSQL_USER'] = user
     os.environ['MYSQL_PASSWORD'] = password
     os.environ['MYSQL_DB'] = database
+
+
+# def test_setup_mysql():
+#
+#     """ Setup the ENV VARS """
+#
+#     os.environ['MYSQL_HOST']
+#     os.environ['MYSQL_USER']
+#     os.environ['MYSQL_PASSWORD']
+#     os.environ['MYSQL_DB']
+#
+# if __name__ == '__main__':
+#     test_setup_mysql()

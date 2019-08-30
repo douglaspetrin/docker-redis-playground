@@ -8,7 +8,7 @@ class StartRedis(object):
     """ Starts redisdb instance """
 
     def __init__(self):
-        self.redis = redis.StrictRedis(os.getenv['REDIS_HOST'])
+        self.redis = redis.StrictRedis(os.getenv('REDIS_HOST'))
         self.encoder = json.JSONEncoder()
         self.stream = 'doug_redis_stream'
 
@@ -47,6 +47,10 @@ class StartRedis(object):
     def read_set(self, name):
         """ Reads set"""
         return self.redis.get(name)
+
+#
+# def setup_redis(host):
+#     os.environ['REDIS_HOST'] = host
 
 
 # import datetime
