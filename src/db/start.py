@@ -10,10 +10,10 @@ class StartMySQL(object):
     """ Starts with MySQL address"""
 
     def __init__(self):
-        self.localhost = os.environ['MYSQL_HOST']
-        self.database = os.environ['MYSQL_DB']
-        self.user = os.environ['MYSQL_USER']
-        self.password = os.environ['MYSQL_PASSWORD']
+        self.localhost = os.getenv('MYSQL_HOST')
+        self.database = os.getenv('MYSQL_DB')
+        self.user = os.getenv('MYSQL_USER')
+        self.password = os.getenv('MYSQL_PASSWORD')
         self.engine = self._create_engine()
         self.session_maker = sessionmaker(bind=self.engine)
         self.session = self.session_maker()
@@ -50,3 +50,13 @@ class StartMySQL(object):
     def commit_session(self):
         """ Commits the open session"""
         return self.session.commit()
+
+
+def setup_mysql(host, user, password, database):
+
+    """ Setup the ENV VARS """
+
+    os.environ['MYSQL_HOST'] = host
+    os.environ['MYSQL_USER'] = user
+    os.environ['MYSQL_PASSWORD'] = password
+    os.environ['MYSQL_DB'] = database
