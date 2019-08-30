@@ -34,3 +34,5 @@ git stash list
 
 chmod +x mysql-docker.sh
 ./mysql-docker.sh
+
+git rm --cached scripts/ENV.sh -f

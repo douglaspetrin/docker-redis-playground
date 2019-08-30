@@ -6,7 +6,7 @@ services:
     build: .
   
   redis:
-    image: 'redisdb:alpine'
+    image: 'redis:alpine'
     ports:
       - '6379:6379'
 

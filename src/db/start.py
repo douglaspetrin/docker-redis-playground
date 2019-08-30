@@ -2,17 +2,18 @@ import sqlalchemy
 from sqlalchemy.orm import sessionmaker
 from src.db.tables import Base
 from src.db.tables import User, Candle
+import os
 
 
 class StartMySQL(object):
 
     """ Starts with MySQL address"""
 
-    def __init__(self, localhost=None, database='doug_db', user='root', password='root'):
-        self.localhost = localhost
-        self.database = database
-        self.user = user
-        self.password = password
+    def __init__(self):
+        self.localhost = os.environ['MYSQL_HOST']
+        self.database = os.environ['MYSQL_DB']
+        self.user = os.environ['MYSQL_USER']
+        self.password = os.environ['MYSQL_PASSWORD']
         self.engine = self._create_engine()
         self.session_maker = sessionmaker(bind=self.engine)
         self.session = self.session_maker()

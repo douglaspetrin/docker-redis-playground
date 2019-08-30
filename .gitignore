@@ -1,8 +1,10 @@
 venv
 .vscode/
-.idea
-src/db.py
-src/mydb.py
+*.idea
+.idea/docker-redis-playground.iml
 *.pyc
+
 backup/backup.sql
+scripts/ENV.sh
 mysql_data
+
