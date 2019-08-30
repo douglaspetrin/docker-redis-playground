@@ -1,13 +1,14 @@
 import json
 import redis
+import os
 
 
 class StartRedis(object):
 
     """ Starts redisdb instance """
 
-    def __init__(self, host):
-        self.redis = redis.StrictRedis(host)
+    def __init__(self):
+        self.redis = redis.StrictRedis(os.environ['REDIS_HOST'])
         self.encoder = json.JSONEncoder()
         self.stream = 'doug_redis_stream'
 
